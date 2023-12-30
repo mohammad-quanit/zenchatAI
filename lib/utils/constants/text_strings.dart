@@ -1,6 +1,5 @@
 /// This class contains all the App Text in String formats.
 class ZTexts {
-  ZTexts._();
 
   // -- GLOBAL Texts
   static const String and = "and";
@@ -11,7 +10,7 @@ class ZTexts {
   static const String tContinue = "Continue";
 
   // -- OnBoarding Texts
-  static const String onBoardingTitle1 = "Choose your product";
+  static const String onBoardingTitle1 = "Speak Up";
   static const String onBoardingTitle2 = "Select Payment Method";
   static const String onBoardingTitle3 = "Deliver at your door step";
 

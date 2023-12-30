@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class ZColors {
-  ZColors._();
 
   // App theme colors
   static const Color primary = Color(0xFF4b68ff);

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zenchatai/utils/constants/image_strings.dart';
 import 'package:zenchatai/utils/helpers/helper_functions.dart';
 
 class Onboarding extends StatefulWidget {
@@ -18,8 +19,7 @@ class _OnboardingState extends State<Onboarding> {
           PageView(
             children: [
               Image(
-                image: const AssetImage(
-                    "assets/images/on_boarding_images/sammy-line-searching.gif"),
+                image: const AssetImage(ZImages.onBoardingImage1),
                 width: ZHelperFunctions.screenWidth() * 0.8,
                 height: ZHelperFunctions.screenWidth() * 0.6,
               )
