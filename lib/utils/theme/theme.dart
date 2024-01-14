@@ -9,13 +9,18 @@ class ZAppTheme {
 
   static ThemeData lightTheme = ThemeData(
       useMaterial3: true,
-      fontFamily: "poppins",
+      fontFamily: "Poppins",
       brightness: Brightness.light,
       primaryColor: Colors.yellow,
-      scaffoldBackgroundColor: Colors.white,
+      scaffoldBackgroundColor: Colors.amber.shade50,
       appBarTheme: ZAppBarTheme.lighAppBarTheme,
       textTheme: ZTextTheme.lightTextTheme,
-      elevatedButtonTheme: ZElevationButtonTheme.elevatedBtnLightTheme);
+      elevatedButtonTheme: ZElevationButtonTheme.elevatedBtnLightTheme,
+      // checkboxTheme: ZCheckboxTheme.lightCheckboxTheme,
+      // bottomSheetTheme: TBottomSheetTheme.lightBottomSheetTheme,
+      // outlinedButtonTheme: TOutlinedButtonTheme.lightOutlinedButtonTheme,
+      // inputDecorationTheme: ZTextFormFieldTheme.lightInputDecorationTheme,
+    );
 
   static ThemeData darkTheme = ThemeData(
       useMaterial3: true,
@@ -25,5 +30,6 @@ class ZAppTheme {
       scaffoldBackgroundColor: Colors.black,
       appBarTheme: ZAppBarTheme.darkAppBarTheme,
       textTheme: ZTextTheme.darkTextTheme,
-      elevatedButtonTheme: ZElevationButtonTheme.elevatedBtnDarkTheme);
+      elevatedButtonTheme: ZElevationButtonTheme.elevatedBtnDarkTheme
+    );
 }

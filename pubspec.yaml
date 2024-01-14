@@ -45,6 +45,8 @@ dependencies:
   # State Management
   get: ^4.6.6
   get_storage:
+  url_launcher: ^6.2.2
+  iconsax: ^0.0.8
 
 dev_dependencies:
   flutter_test:
