@@ -14,6 +14,7 @@ class ZElevationButtonTheme {
               side: const BorderSide(color: Colors.green),
               padding: const EdgeInsets.symmetric(vertical: 12),
               textStyle: const TextStyle(
+                  // fontFamily: "PlayfairDisplay",
                   fontSize: 16,
                   color: Colors.white,
                   fontWeight: FontWeight.w600),

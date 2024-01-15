@@ -45,7 +45,7 @@ class ZTexts {
   // -- Authentication Headings
   static const String loginTitle = "Welcome To ZenChat AI,";
   static const String loginSubTitle =
-      "Discover Limitless Choices and Unmatched Convenience.";
+      "Guidance for individuals seeking assistance with their mental well-being.";
   static const String signupTitle = "Let’s create your account";
   static const String forgetPasswordTitle = "Forget password";
   static const String forgetPasswordSubTitle =
