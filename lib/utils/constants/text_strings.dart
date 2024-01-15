@@ -43,7 +43,7 @@ class ZTexts {
   static const String resendEmailIn = "Resend email in";
 
   // -- Authentication Headings
-  static const String loginTitle = "Welcome back,";
+  static const String loginTitle = "Welcome To ZenChat AI,";
   static const String loginSubTitle =
       "Discover Limitless Choices and Unmatched Convenience.";
   static const String signupTitle = "Let’s create your account";
@@ -68,5 +68,5 @@ class ZTexts {
 
   // -- Home
   static const String homeAppbarTitle = "Good day for shopping";
-  static const String homeAppbarSubTitle = "Taimoor Sikander";
+  static const String homeAppbarSubTitle = "ZenChat AI";
 }

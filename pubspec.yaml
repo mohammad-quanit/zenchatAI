@@ -94,6 +94,10 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
+    - family: PlayfairDisplay
+      fonts: 
+        - asset: assets/fonts/PlayfairDisplay-VariableFont_wght.ttf
+
     - family: Poppins
       fonts:
         - asset: assets/fonts/Poppins-Light.ttf
