@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ZColors {
 
   // App theme colors
-  static const Color primary = Color(0xFF4b68ff);
+  static const Color primary = Color(0xFF4CAF50);
   static const Color secondary = Color(0xFFFFE24B);
   static const Color accent = Color(0xFFb0c7ff);
 
@@ -15,7 +15,7 @@ class ZColors {
   // Background colors
   static const Color light = Color(0xFFF6F6F6);
   static const Color dark = Color(0xFF272727);
-  static const Color primaryBackground = Color(0xFFF3F5FF);
+  static const Color primaryBackground = Color(0xFF0B0C0F);
 
   // Background Container colors
   static const Color lightContainer = Color(0xFFF6F6F6);
@@ -44,6 +44,8 @@ class ZColors {
   static const Color softGrey = Color(0xFFF4F4F4);
   static const Color lightGrey = Color(0xFFF9F9F9);
   static const Color white = Color(0xFFFFFFFF);
+  
+  static const Color softGreen = Color(0xFFE8F5E9);
 
   // Gradient Colors
   static const Gradient linearGradient = LinearGradient(

@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+
 import 'package:zenchatai/common/styles/spacing_styles.dart';
+import 'package:zenchatai/common/widgets/divider_text.dart';
+import 'package:zenchatai/common/widgets/social_buttons.dart';
+import 'package:zenchatai/features/authentication/screens/signup.dart';
+
 import 'package:zenchatai/utils/constants/colors.dart';
 import 'package:zenchatai/utils/constants/image_strings.dart';
 import 'package:zenchatai/utils/constants/sizes.dart';
@@ -25,78 +31,15 @@ class LoginScreen extends StatelessWidget {
             LoginForm(),
 
             /// Divider
-            LoginDivider(),
+            ZDivider(dividerText: ZTexts.orSignInWith),
 
             SizedBox(height: ZSizes.spaceBtwSections / 2),
 
             /// Footer
-            LoginFooter()
+            SocialButtons()
           ],
         ),
       )),
-    );
-  }
-}
-
-class LoginFooter extends StatelessWidget {
-  const LoginFooter({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          decoration: BoxDecoration(
-              border: Border.all(color: ZColors.grey),
-              borderRadius: BorderRadius.circular(100)),
-          child: IconButton(
-              onPressed: () {},
-              icon: const Image(
-                width: ZSizes.iconMd,
-                height: ZSizes.iconMd,
-                image: AssetImage(ZImages.google),
-              )),
-        )
-      ],
-    );
-  }
-}
-
-class LoginDivider extends StatelessWidget {
-  const LoginDivider({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final isDark = ZHelperFunctions.isDarkMode(context);
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Flexible(
-          child: Divider(
-            color: isDark ? ZColors.darkGrey : ZColors.grey,
-            thickness: 0.5,
-            indent: 60,
-            endIndent: 5,
-          ),
-        ),
-        Text(
-          ZTexts.orSignInWith,
-          style: Theme.of(context).textTheme.labelMedium,
-        ),
-        Flexible(
-          child: Divider(
-            color: isDark ? ZColors.darkGrey : ZColors.grey,
-            thickness: 0.5,
-            indent: 5,
-            endIndent: 60,
-          ),
-        )
-      ],
     );
   }
 }
@@ -112,16 +55,16 @@ class LoginForm extends StatelessWidget {
         child: Padding(
       padding: const EdgeInsets.symmetric(vertical: ZSizes.spaceBtwSections),
       child: Column(
-        // crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           /// Email
           TextFormField(
             decoration: const InputDecoration(
                 labelText: ZTexts.email,
-                prefixIcon: Icon(Iconsax.direct_right)),
+                prefixIcon: Icon(Icons.email_outlined)),
           ),
 
-          const SizedBox(height: ZSizes.spaceBtwInputFields),
+          const SizedBox(height: ZSizes.spaceBtwInputFields / 2),
 
           /// Password
           TextFormField(
@@ -130,30 +73,23 @@ class LoginForm extends StatelessWidget {
                 prefixIcon: Icon(Iconsax.password_check),
                 suffixIcon: Icon(Iconsax.eye_slash)),
           ),
-
-          const SizedBox(height: ZSizes.spaceBtwInputFields / 2),
+          // const SizedBox(height: ZSizes.spaceBtwInputFields / 8),
 
           /// Forget Password & Remember me
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              /// Remember Me
-              Row(
-                children: [
-                  Checkbox(value: true, onChanged: (value) {}),
-                  const Text(ZTexts.rememberMe),
-                ],
-              ),
-
               /// Forget Password
               TextButton(
-                onPressed: () {},
-                child: const Text(ZTexts.forgetPassword),
-              )
+                  style: TextButton.styleFrom(padding: EdgeInsets.zero),
+                  onPressed: () {},
+                  child: Text(ZTexts.forgetPassword,
+                      style: Theme.of(context)
+                          .textTheme
+                          .labelSmall!
+                          .copyWith(color: ZColors.primary)))
             ],
           ),
-
-          const SizedBox(height: ZSizes.spaceBtwSections),
 
           /// Sign in button
           SizedBox(
@@ -164,15 +100,23 @@ class LoginForm extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(height: ZSizes.spaceBtwSections / 2),
-
-          /// Create Account button
-          SizedBox(
-            width: double.infinity,
-            child: OutlinedButton(
-              onPressed: () {},
-              child: const Text(ZTexts.createAccount),
-            ),
+          /// Create Account Text & Text button
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(ZTexts.createAccountText,
+                  style: Theme.of(context).textTheme.labelSmall),
+              TextButton(
+                onPressed: () => Get.to(() => const SignupScreen()),
+                style: TextButton.styleFrom(
+                    padding: const EdgeInsets.all(ZSizes.xs)),
+                child: Text(ZTexts.createAccount,
+                    style: Theme.of(context)
+                        .textTheme
+                        .labelSmall!
+                        .copyWith(color: ZColors.primary)),
+              )
+            ],
           ),
         ],
       ),
@@ -189,12 +133,12 @@ class LoginHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDark = ZHelperFunctions.isDarkMode(context);
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Image(
-            height: 150,
-            image: AssetImage(
-                isDark ? ZImages.lightAppLogo : ZImages.darkAppLogo)),
+            height: 200,
+            image: AssetImage(isDark ? ZImages.loginImg : ZImages.loginImg)),
+        const SizedBox(height: ZSizes.lg),
         Text(ZTexts.loginTitle,
             style: Theme.of(context).textTheme.headlineMedium),
         const SizedBox(height: ZSizes.sm),

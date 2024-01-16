@@ -17,6 +17,8 @@ class ZSizes {
   static const double fontSizeMd = 16.0;
   static const double fontSizeLg = 18.0;
 
+  static const double inputFieldHeight = 50.0;
+
   // Button sizes
   static const double buttonHeight = 12.0;
   static const double buttonRadius = 12.0;

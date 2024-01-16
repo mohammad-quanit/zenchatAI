@@ -33,8 +33,9 @@ class ZTexts {
   static const String forgetPassword = "Forget Password?";
   static const String signIn = "Sign In";
   static const String createAccount = "Create Account";
-  static const String orSignInWith = "or sign in with";
-  static const String orSignUpWith = "or sign up with";
+  static const String createAccountText = "Doesn't have an account?";
+  static const String orSignInWith = "or Sign in with";
+  static const String orSignUpWith = "or Sign up with";
   static const String iAgreeTo = "I agree to";
   static const String privacyPolicy = "Privacy Policy";
   static const String termsOfUse = "Terms of use";
@@ -46,10 +47,10 @@ class ZTexts {
   static const String loginTitle = "Welcome To ZenChat AI,";
   static const String loginSubTitle =
       "Guidance for individuals seeking assistance with their mental well-being.";
-  static const String signupTitle = "Let’s create your account";
+  static const String signupTitle = "Let's create your account";
   static const String forgetPasswordTitle = "Forget password";
   static const String forgetPasswordSubTitle =
-      "Don’t worry sometimes people can forget too, enter your email and we will send you a password reset link.";
+      "Don't worry sometimes people can forget too, enter your email and we will send you a password reset link.";
   static const String changeYourPasswordTitle = "Password Reset Email Sent";
   static const String changeYourPasswordSubTitle =
       "Your Account Security is Our Priority! We've Sent You a Secure Link to Safely Change Your Password and Keep Your Account Protected.";

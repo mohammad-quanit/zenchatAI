@@ -68,11 +68,12 @@ class OnboardingCircularBtn extends StatelessWidget {
         bottom: ZDeviceUtils.getBottomNavigationBarHeight(),
         right: ZSizes.defaultSpace,
         child: ElevatedButton(
-          style: ElevatedButton.styleFrom(shape: const CircleBorder(), backgroundColor: dark ? ZColors.primary : Colors.black),
+          style: ElevatedButton.styleFrom(
+              shape: const CircleBorder(),
+              backgroundColor: dark ? ZColors.primary : ZColors.primary),
           onPressed: () => OnboardingController.instance.nextPage(),
           child: const Icon(Iconsax.arrow_right_3),
-        )
-      );
+        ));
   }
 }
 
@@ -92,9 +93,11 @@ class OnboardingDotNavigation extends StatelessWidget {
           controller: controller.pageController,
           onDotClicked: controller.dotNavigationClick,
           count: 3,
-          effect: ExpandingDotsEffect(activeDotColor: dark ? ZColors.white : ZColors.dark, dotHeight: 6,),
-        )
-      );
+          effect: ExpandingDotsEffect(
+            activeDotColor: dark ? ZColors.white : ZColors.primary,
+            dotHeight: 6,
+          ),
+        ));
   }
 }
 
@@ -107,8 +110,13 @@ class OnboardingSkip extends StatelessWidget {
     return Positioned(
         top: ZDeviceUtils.getAppBarHeight(),
         right: ZSizes.defaultSpace,
-        child: TextButton(onPressed: () => OnboardingController.instance.skipPage(), child: const Text("Skip"))
-      );
+        child: TextButton(
+            onPressed: () => OnboardingController.instance.skipPage(),
+            child: const Text(
+              "Skip",
+              style: TextStyle(
+                  color: ZColors.primary, fontWeight: FontWeight.bold),
+            )));
   }
 }
 
@@ -148,7 +156,6 @@ class OnboardingView extends StatelessWidget {
               textAlign: TextAlign.center,
             )
           ],
-        )
-      );
+        ));
   }
 }

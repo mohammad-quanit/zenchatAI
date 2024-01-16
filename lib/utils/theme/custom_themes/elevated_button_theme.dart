@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zenchatai/utils/constants/colors.dart';
 
 class ZElevationButtonTheme {
   ZElevationButtonTheme._();
@@ -7,11 +8,11 @@ class ZElevationButtonTheme {
       ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
               elevation: 0,
-              foregroundColor: Colors.white,
-              backgroundColor: Colors.green,
+              foregroundColor: ZColors.white,
+              backgroundColor: ZColors.primary,
               disabledForegroundColor: Colors.grey,
               disabledBackgroundColor: Colors.grey,
-              side: const BorderSide(color: Colors.green),
+              side: const BorderSide(color: ZColors.primary),
               padding: const EdgeInsets.symmetric(vertical: 12),
               textStyle: const TextStyle(
                   // fontFamily: "PlayfairDisplay",
@@ -24,11 +25,11 @@ class ZElevationButtonTheme {
   static ElevatedButtonThemeData elevatedBtnDarkTheme = ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
           elevation: 0,
-          foregroundColor: Colors.white,
-          backgroundColor: Colors.green,
+          foregroundColor: ZColors.white,
+          backgroundColor: ZColors.primary,
           disabledForegroundColor: Colors.grey,
           disabledBackgroundColor: Colors.grey,
-          side: const BorderSide(color: Colors.green),
+          side: const BorderSide(color: ZColors.primary),
           padding: const EdgeInsets.symmetric(vertical: 12),
           textStyle: const TextStyle(
               fontSize: 16, color: Colors.white, fontWeight: FontWeight.w600),
