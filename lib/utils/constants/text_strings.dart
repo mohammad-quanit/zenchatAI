@@ -34,8 +34,8 @@ class ZTexts {
   static const String signIn = "Sign In";
   static const String createAccount = "Create Account";
   static const String createAccountText = "Doesn't have an account?";
-  static const String orSignInWith = "or Sign in with";
-  static const String orSignUpWith = "or Sign up with";
+  static const String orSignInWith = "or sign in with";
+  static const String orSignUpWith = "or sign up with";
   static const String iAgreeTo = "I agree to";
   static const String privacyPolicy = "Privacy Policy";
   static const String termsOfUse = "Terms of use";

@@ -150,7 +150,11 @@ class ZImages {
 
   //Profile
   static const String user = "assets/images/content/user.png";
+
+  // Login, SignUp, Verify Email
   static const String loginImg = "assets/images/content/login-image.png";
+  static const String verifyEmail = "assets/images/content/email-verify.png";
+
 
   // -- Payment Methods
   // static const String applePay = "assets/icons/payment_methods/apple-pay.png";

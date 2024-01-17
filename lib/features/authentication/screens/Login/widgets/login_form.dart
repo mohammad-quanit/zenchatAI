@@ -1,48 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-
-import 'package:zenchatai/common/styles/spacing_styles.dart';
-import 'package:zenchatai/common/widgets/divider_text.dart';
-import 'package:zenchatai/common/widgets/social_buttons.dart';
-import 'package:zenchatai/features/authentication/screens/signup.dart';
-
+import 'package:zenchatai/features/authentication/screens/Signup/signup.dart';
 import 'package:zenchatai/utils/constants/colors.dart';
-import 'package:zenchatai/utils/constants/image_strings.dart';
 import 'package:zenchatai/utils/constants/sizes.dart';
 import 'package:zenchatai/utils/constants/text_strings.dart';
-import 'package:zenchatai/utils/helpers/helper_functions.dart';
-
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SingleChildScrollView(
-          child: Padding(
-        padding: ZSpacingStyle.paddingWithAppBarHeight,
-        child: Column(
-          children: [
-            /// Header with logo, title, subtitle
-            LoginHeader(),
-
-            /// Login Form
-            LoginForm(),
-
-            /// Divider
-            ZDivider(dividerText: ZTexts.orSignInWith),
-
-            SizedBox(height: ZSizes.spaceBtwSections / 2),
-
-            /// Footer
-            SocialButtons()
-          ],
-        ),
-      )),
-    );
-  }
-}
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
@@ -121,30 +83,5 @@ class LoginForm extends StatelessWidget {
         ],
       ),
     ));
-  }
-}
-
-class LoginHeader extends StatelessWidget {
-  const LoginHeader({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final isDark = ZHelperFunctions.isDarkMode(context);
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Image(
-            height: 200,
-            image: AssetImage(isDark ? ZImages.loginImg : ZImages.loginImg)),
-        const SizedBox(height: ZSizes.lg),
-        Text(ZTexts.loginTitle,
-            style: Theme.of(context).textTheme.headlineMedium),
-        const SizedBox(height: ZSizes.sm),
-        Text(ZTexts.loginSubTitle,
-            style: Theme.of(context).textTheme.bodyMedium),
-      ],
-    );
   }
 }

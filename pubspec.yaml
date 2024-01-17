@@ -47,6 +47,8 @@ dependencies:
   get_storage:
   url_launcher: ^6.2.2
   iconsax: ^0.0.8
+  supabase_flutter: ^2.2.0
+  google_sign_in: ^6.2.1
 
 dev_dependencies:
   flutter_test:
