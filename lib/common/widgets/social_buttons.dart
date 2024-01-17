@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 import 'package:zenchatai/main.dart';
 import 'package:zenchatai/utils/constants/colors.dart';
 import 'package:zenchatai/utils/constants/image_strings.dart';
@@ -38,7 +40,7 @@ Future<AuthResponse> _googleSignIn() async {
   /// update the Web client ID with your own.
   ///
   /// Web Client ID that you registered with Google Cloud.
-  const webClientId = '175180413005-2p4gav4sbjpftotvv6pgkp8i50o849ur.apps.googleusercontent.com';
+  final webClientId = dotenv.env['WEB_CLIENT_ID'];
 
   /// update the iOS client ID with your own.
   ///

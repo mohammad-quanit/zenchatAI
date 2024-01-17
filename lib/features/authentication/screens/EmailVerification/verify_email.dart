@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:zenchatai/common/widgets/sucess_screen.dart';
 import 'package:zenchatai/features/authentication/screens/Login/login.dart';
 import 'package:zenchatai/utils/constants/image_strings.dart';
 import 'package:zenchatai/utils/constants/sizes.dart';
@@ -29,7 +30,7 @@ class VerifyEmailScreen extends StatelessWidget {
               /// Image
               Image(
                 image: const AssetImage(ZImages.verifyEmail),
-                width: ZHelperFunctions.screenWidth(),
+                width: ZHelperFunctions.screenWidth() * 0.6,
               ),
               const SizedBox(
                 height: ZSizes.spaceBtwSections,
@@ -44,6 +45,7 @@ class VerifyEmailScreen extends StatelessWidget {
               const SizedBox(
                 height: ZSizes.spaceBtwItems,
               ),
+
               Text(
                 "xyz@support.com",
                 style: Theme.of(context).textTheme.labelLarge,
@@ -52,13 +54,37 @@ class VerifyEmailScreen extends StatelessWidget {
               const SizedBox(
                 height: ZSizes.spaceBtwItems,
               ),
+
               Text(
                 ZTexts.confirmEmailSubTitle,
                 style: Theme.of(context).textTheme.labelMedium,
                 textAlign: TextAlign.center,
               ),
+              const SizedBox(
+                height: ZSizes.spaceBtwItems,
+              ),
 
               /// Button
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                    onPressed: () => Get.to(() => Success(
+                          image: ZImages.staticSuccessIllustration,
+                          title: ZTexts.yourAccountCreatedTitle,
+                          subTitle: ZTexts.yourAccountCreatedSubTitle,
+                          onPressed: () => Get.to(() => const LoginScreen()),
+                        )),
+                    child: const Text(ZTexts.tContinue)),
+              ),
+              const SizedBox(
+                height: ZSizes.spaceBtwItems,
+              ),
+
+              SizedBox(
+                width: double.infinity,
+                child: TextButton(
+                    onPressed: () {}, child: const Text(ZTexts.resendEmail)),
+              )
             ],
           ),
         ),

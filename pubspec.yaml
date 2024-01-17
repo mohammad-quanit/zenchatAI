@@ -49,6 +49,7 @@ dependencies:
   iconsax: ^0.0.8
   supabase_flutter: ^2.2.0
   google_sign_in: ^6.2.1
+  flutter_dotenv: ^5.1.0
 
 dev_dependencies:
   flutter_test:
@@ -80,9 +81,10 @@ flutter:
     # - assets/images/reviews/
     # - assets/images/products/
     # - assets/icons/categories/
-    # - assets/images/animations/
+    - assets/images/animations/
     # - assets/icons/payment_methods/
     - assets/images/on_boarding_images/
+    - .env # path to your .env
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
