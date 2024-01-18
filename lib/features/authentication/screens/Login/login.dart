@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'package:zenchatai/common/styles/spacing_styles.dart';
 import 'package:zenchatai/common/widgets/divider_text.dart';
 import 'package:zenchatai/common/widgets/social_buttons.dart';

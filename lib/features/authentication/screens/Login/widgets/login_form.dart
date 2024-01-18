@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:zenchatai/features/authentication/screens/PasswordConfig/forget_password.dart';
 import 'package:zenchatai/features/authentication/screens/Signup/signup.dart';
 import 'package:zenchatai/utils/constants/colors.dart';
 import 'package:zenchatai/utils/constants/sizes.dart';
@@ -44,7 +45,7 @@ class LoginForm extends StatelessWidget {
               /// Forget Password
               TextButton(
                   style: TextButton.styleFrom(padding: EdgeInsets.zero),
-                  onPressed: () {},
+                  onPressed: () => Get.to(() => const ForgetPasswordScreen()),
                   child: Text(ZTexts.forgetPassword,
                       style: Theme.of(context)
                           .textTheme
