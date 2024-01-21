@@ -1,6 +1,5 @@
 /// This class contains all the App Text in String formats.
 class ZTexts {
-
   // -- GLOBAL Texts
   static const String and = "and";
   static const String skip = "Skip";
@@ -8,6 +7,7 @@ class ZTexts {
   static const String submit = "Submit";
   static const String appName = "T-Store";
   static const String tContinue = "Continue";
+  static const String search = "Search";
 
   // -- OnBoarding Texts
   static const String onBoardingTitle1 = "Speak Up";

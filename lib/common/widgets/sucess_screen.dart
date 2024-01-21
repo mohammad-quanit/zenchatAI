@@ -54,8 +54,7 @@ class Success extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                    onPressed: onPressed,
-                    child: const Text(ZTexts.done)),
+                    onPressed: onPressed, child: const Text(ZTexts.done)),
               ),
             ],
           ),
