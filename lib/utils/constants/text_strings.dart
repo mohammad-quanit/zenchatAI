@@ -68,6 +68,8 @@ class ZTexts {
   static const String popularProducts = "Popular Products";
 
   // -- Home
-  static const String homeAppbarTitle = "Good day for shopping";
-  static const String homeAppbarSubTitle = "ZenChat AI";
+  static const String homeAppbarSubTitle = "Welcome to your safe space!";
+  static const String homeAppbarTitle = "ZenChat AI";
+
+
 }
