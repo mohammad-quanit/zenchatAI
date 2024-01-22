@@ -37,15 +37,11 @@ class SocialButtons extends StatelessWidget {
 }
 
 Future<AuthResponse> _googleSignIn() async {
-  /// update the Web client ID with your own.
-  ///
   /// Web Client ID that you registered with Google Cloud.
   final webClientId = dotenv.env['WEB_CLIENT_ID'];
 
-  /// update the iOS client ID with your own.
-  ///
   /// iOS Client ID that you registered with Google Cloud.
-  const iosClientId = 'my-ios.apps.googleusercontent.com';
+  final iosClientId = dotenv.env['IOS_CLIENT_ID'];
 
   // Google sign in on Android will work without providing the Android
   // Client ID registered on Google Cloud.
