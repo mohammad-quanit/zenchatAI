@@ -45,13 +45,13 @@ Future<AuthResponse> _googleSignIn() async {
   /// update the iOS client ID with your own.
   ///
   /// iOS Client ID that you registered with Google Cloud.
-  // const iosClientId = 'my-ios.apps.googleusercontent.com';
+  const iosClientId = 'my-ios.apps.googleusercontent.com';
 
   // Google sign in on Android will work without providing the Android
   // Client ID registered on Google Cloud.
 
   final GoogleSignIn googleSignIn = GoogleSignIn(
-    // clientId: iosClientId,
+    clientId: iosClientId,
     serverClientId: webClientId,
   );
   final googleUser = await googleSignIn.signIn();

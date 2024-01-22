@@ -4,8 +4,8 @@ import 'package:zenchatai/utils/constants/sizes.dart';
 import 'package:zenchatai/utils/constants/text_strings.dart';
 import 'package:zenchatai/utils/helpers/helper_functions.dart';
 
-class Success extends StatelessWidget {
-  const Success(
+class ZSuccessScreen extends StatelessWidget {
+  const ZSuccessScreen(
       {super.key,
       required this.image,
       required this.title,

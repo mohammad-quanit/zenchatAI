@@ -3,8 +3,7 @@ import 'package:zenchatai/utils/constants/colors.dart';
 import 'package:zenchatai/utils/constants/sizes.dart';
 // import '../../constants/colors.dart';
 
-class ZAppBarTheme{
-
+class ZAppBarTheme {
   static const lighAppBarTheme = AppBarTheme(
     elevation: 0,
     centerTitle: false,
@@ -13,7 +12,8 @@ class ZAppBarTheme{
     surfaceTintColor: Colors.transparent,
     iconTheme: IconThemeData(color: ZColors.black, size: ZSizes.iconMd),
     actionsIconTheme: IconThemeData(color: ZColors.black, size: ZSizes.iconMd),
-    titleTextStyle: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w600, color: ZColors.black),
+    titleTextStyle: TextStyle(
+        fontSize: 18.0, fontWeight: FontWeight.w600, color: ZColors.black),
   );
 
   static const darkAppBarTheme = AppBarTheme(
@@ -24,6 +24,7 @@ class ZAppBarTheme{
     surfaceTintColor: Colors.transparent,
     iconTheme: IconThemeData(color: ZColors.black, size: ZSizes.iconMd),
     actionsIconTheme: IconThemeData(color: ZColors.white, size: ZSizes.iconMd),
-    titleTextStyle: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w600, color: ZColors.white),
+    titleTextStyle: TextStyle(
+        fontSize: 18.0, fontWeight: FontWeight.w600, color: ZColors.white),
   );
 }

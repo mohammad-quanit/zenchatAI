@@ -68,7 +68,7 @@ class VerifyEmailScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                    onPressed: () => Get.to(() => Success(
+                    onPressed: () => Get.to(() => ZSuccessScreen(
                           image: ZImages.staticSuccessIllustration,
                           title: ZTexts.yourAccountCreatedTitle,
                           subTitle: ZTexts.yourAccountCreatedSubTitle,

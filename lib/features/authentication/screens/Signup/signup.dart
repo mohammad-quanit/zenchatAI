@@ -20,7 +20,8 @@ class SignupScreen extends StatelessWidget {
           child: Column(
             children: [
               /// Title
-              Text(ZTexts.signupTitle, style: Theme.of(context).textTheme.headlineMedium),
+              Text(ZTexts.signupTitle,
+                  style: Theme.of(context).textTheme.headlineMedium),
               const SizedBox(height: ZSizes.spaceBtwSections),
 
               /// Form

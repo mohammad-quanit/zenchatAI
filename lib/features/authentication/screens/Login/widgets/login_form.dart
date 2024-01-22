@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:zenchatai/features/authentication/screens/PasswordConfig/forget_password.dart';
 import 'package:zenchatai/features/authentication/screens/Signup/signup.dart';
+import 'package:zenchatai/navigation/navigation_menu.dart';
 import 'package:zenchatai/utils/constants/colors.dart';
 import 'package:zenchatai/utils/constants/sizes.dart';
 import 'package:zenchatai/utils/constants/text_strings.dart';
@@ -58,7 +59,7 @@ class LoginForm extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () => Get.to(() => const NavigationMenu()),
               child: const Text(ZTexts.signIn),
             ),
           ),
