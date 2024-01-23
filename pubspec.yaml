@@ -44,12 +44,13 @@ dependencies:
 
   # State Management
   get: ^4.6.6
-  get_storage:
+  get_storage: ^2.1.1
   url_launcher: ^6.2.2
   iconsax: ^0.0.8
   supabase_flutter: ^2.2.0
   google_sign_in: ^6.2.1
   flutter_dotenv: ^5.1.0
+  timeago: ^3.2.2
 
 dev_dependencies:
   flutter_test:
@@ -102,23 +103,23 @@ flutter:
       fonts: 
         - asset: assets/fonts/PlayfairDisplay-VariableFont_wght.ttf
 
-    - family: Poppins
-      fonts:
-        - asset: assets/fonts/Poppins-Light.ttf
-          weight: 300
-        - asset: assets/fonts/Poppins-Regular.ttf
-          weight: 400
-        - asset: assets/fonts/Poppins-Italic.ttf
-          style: italic
-        - asset: assets/fonts/Poppins-Medium.ttf
-          weight: 500
-        - asset: assets/fonts/Poppins-MediumItalic.ttf
-          weight: 500
-          style: italic
-        - asset: assets/fonts/Poppins-SemiBold.ttf
-          weight: 600
-        - asset: assets/fonts/Poppins-Bold.ttf
-          weight: 800
+    # - family: Poppins
+    #   fonts:
+    #     - asset: assets/fonts/Poppins-Light.ttf
+    #       weight: 300
+    #     - asset: assets/fonts/Poppins-Regular.ttf
+    #       weight: 400
+    #     - asset: assets/fonts/Poppins-Italic.ttf
+    #       style: italic
+    #     - asset: assets/fonts/Poppins-Medium.ttf
+    #       weight: 500
+    #     - asset: assets/fonts/Poppins-MediumItalic.ttf
+    #       weight: 500
+    #       style: italic
+    #     - asset: assets/fonts/Poppins-SemiBold.ttf
+    #       weight: 600
+    #     - asset: assets/fonts/Poppins-Bold.ttf
+    #       weight: 800
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

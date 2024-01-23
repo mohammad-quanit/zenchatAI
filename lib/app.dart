@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:zenchatai/utils/constants/colors.dart';
 import 'package:zenchatai/utils/theme/theme.dart';
 
-import 'package:zenchatai/features/authentication/screens/Onboarding/onboarding.dart';
+// import 'package:zenchatai/features/authentication/screens/Onboarding/onboarding.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
@@ -15,7 +16,14 @@ class App extends StatelessWidget {
       theme: ZAppTheme.lightTheme,
       darkTheme: ZAppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
-      home: const OnboardingScreen(),
+      home: const Scaffold(
+        backgroundColor: ZColors.primary,
+        body: Center(
+          child: CircularProgressIndicator(
+            color: ZColors.white,
+          ),
+        ),
+      ),
       // supportedLocales: {const Locale('en', ' ')},
     );
   }
