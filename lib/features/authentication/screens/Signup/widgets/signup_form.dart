@@ -22,24 +22,24 @@ class SignupForm extends StatelessWidget {
           children: [
             Row(
               children: [
-
                 Expanded(
                     child: TextFormField(
                   controller: controller.firstNameController,
-                  validator: (value) => ZValidator.validateText('First Name', value),
+                  validator: (value) =>
+                      ZValidator.validateText('First Name', value),
                   expands: false,
                   decoration: const InputDecoration(
-                      labelText: ZTexts.firstName,
-                      labelStyle: TextStyle(fontSize: ZSizes.fontSizeSm),
-                      prefixIcon: Icon(Iconsax.user)),
+                    labelText: ZTexts.firstName,
+                    labelStyle: TextStyle(fontSize: ZSizes.fontSizeSm),
+                    prefixIcon: Icon(Iconsax.user),
+                  ),
                 )),
-
                 const SizedBox(width: ZSizes.spaceBtwInputFields),
-
                 Expanded(
                     child: TextFormField(
                   controller: controller.lastNameController,
-                  validator: (value) => ZValidator.validateText('Last Name', value),
+                  validator: (value) =>
+                      ZValidator.validateText('Last Name', value),
                   expands: false,
                   decoration: const InputDecoration(
                       labelText: ZTexts.lastName,
@@ -48,6 +48,7 @@ class SignupForm extends StatelessWidget {
                 )),
               ],
             ),
+
             const SizedBox(height: ZSizes.spaceBtwInputFields),
 
             /// username
@@ -105,7 +106,7 @@ class SignupForm extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () => Get.to(() => controller.signup()),
+                onPressed: () => controller.signup(),
                 child: const Text(ZTexts.createAccount),
               ),
             ),

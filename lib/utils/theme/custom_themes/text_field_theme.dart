@@ -10,7 +10,7 @@ class ZTextFormFieldTheme {
     prefixIconColor: ZColors.darkGrey,
     suffixIconColor: ZColors.darkGrey,
     // constraints: const BoxConstraints(maxHeight: 50, minHeight: 50),
-    constraints: const BoxConstraints.expand(height: ZSizes.inputFieldHeight),
+    // constraints: const BoxConstraints.expand(height: ZSizes.inputFieldHeight),
     labelStyle: const TextStyle()
         .copyWith(fontSize: ZSizes.fontSizeMd, color: ZColors.black),
     hintStyle: const TextStyle()
@@ -44,7 +44,7 @@ class ZTextFormFieldTheme {
     errorMaxLines: 2,
     prefixIconColor: ZColors.darkGrey,
     suffixIconColor: ZColors.darkGrey,
-    constraints: const BoxConstraints.expand(height: ZSizes.inputFieldHeight),
+    // constraints: const BoxConstraints.expand(height: ZSizes.inputFieldHeight),
     labelStyle: const TextStyle()
         .copyWith(fontSize: ZSizes.fontSizeMd, color: ZColors.white),
     hintStyle: const TextStyle()

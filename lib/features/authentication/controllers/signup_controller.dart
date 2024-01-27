@@ -25,16 +25,10 @@ class SignupController extends GetxController {
 
       /// Check internet connectivity
       final isConnected = await NetworkManager.instance.isConnected();
-      if (!isConnected) {
-        ZFullScreenLoader.stopLoading();
-        return;
-      }
+      if (!isConnected) return;
 
       ///  Form validation
-      if (!signupFormKey.currentState!.validate()) {
-        ZFullScreenLoader.stopLoading();
-        return;
-      }
+      if (!signupFormKey.currentState!.validate()) return;
     } catch (e) {
       Zloaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
       return;
