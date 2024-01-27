@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:zenchatai/features/authentication/controllers/signup_controller.dart';
-import 'package:zenchatai/features/authentication/screens/EmailVerification/verify_email.dart';
 import 'package:zenchatai/features/authentication/screens/Signup/widgets/gender_selector.dart';
 import 'package:zenchatai/features/authentication/screens/Signup/widgets/policy_agreement.dart';
 import 'package:zenchatai/utils/constants/sizes.dart';
@@ -23,19 +22,24 @@ class SignupForm extends StatelessWidget {
           children: [
             Row(
               children: [
+
                 Expanded(
                     child: TextFormField(
                   controller: controller.firstNameController,
+                  validator: (value) => ZValidator.validateText('First Name', value),
                   expands: false,
                   decoration: const InputDecoration(
                       labelText: ZTexts.firstName,
                       labelStyle: TextStyle(fontSize: ZSizes.fontSizeSm),
                       prefixIcon: Icon(Iconsax.user)),
                 )),
+
                 const SizedBox(width: ZSizes.spaceBtwInputFields),
+
                 Expanded(
                     child: TextFormField(
                   controller: controller.lastNameController,
+                  validator: (value) => ZValidator.validateText('Last Name', value),
                   expands: false,
                   decoration: const InputDecoration(
                       labelText: ZTexts.lastName,
@@ -49,6 +53,7 @@ class SignupForm extends StatelessWidget {
             /// username
             TextFormField(
               controller: controller.usernameController,
+              validator: (value) => ZValidator.validateText('Username', value),
               expands: false,
               decoration: const InputDecoration(
                   labelText: ZTexts.username,
@@ -100,7 +105,7 @@ class SignupForm extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () => Get.to(() => const VerifyEmailScreen()),
+                onPressed: () => Get.to(() => controller.signup()),
                 child: const Text(ZTexts.createAccount),
               ),
             ),
