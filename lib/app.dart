@@ -3,8 +3,6 @@ import 'package:get/get.dart';
 import 'package:zenchatai/utils/constants/colors.dart';
 import 'package:zenchatai/utils/theme/theme.dart';
 
-// import 'package:zenchatai/features/authentication/screens/Onboarding/onboarding.dart';
-
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
 
