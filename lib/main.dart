@@ -23,7 +23,7 @@ Future<void> main() async {
   /// Initialize Supabase credentials
   await Supabase.initialize(
           url: dotenv.env['SUPABASE_URL']!, anonKey: dotenv.env['ANON_KEY']!)
-      .then((value) => Get.put(AuthRepositiory()));
+      .then((value) => Get.put(AuthRepository()));
 
   runApp(const App());
 }

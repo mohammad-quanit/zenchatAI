@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:zenchatai/features/authentication/controllers/signup_controller.dart';
 
-class GenderSelector extends StatefulWidget {
+class GenderSelector extends StatelessWidget {
   const GenderSelector({super.key});
-  @override
-  GenderSelectorState createState() => GenderSelectorState();
-}
-
-class GenderSelectorState extends State<GenderSelector> {
-  String selectedGender = '';
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +22,9 @@ class GenderSelectorState extends State<GenderSelector> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                buildGenderRadioButton('Male'),
-                buildGenderRadioButton('Female'),
+                _buildRadioButton('Male', 'male'),
+                _buildRadioButton('Female', 'female'),
+                // _buildRadioButton('Other', 'Other'),
               ],
             ),
           ],
@@ -36,17 +33,16 @@ class GenderSelectorState extends State<GenderSelector> {
     );
   }
 
-  Widget buildGenderRadioButton(String gender) {
+  Widget _buildRadioButton(String gender, String value) {
+    final controller = SignupController.instance;
     return Row(
       children: [
-        Radio(
-          value: gender,
-          groupValue: selectedGender,
-          onChanged: (value) {
-            setState(() {
-              selectedGender = value.toString();
-            });
-          },
+        Obx(
+          () => Radio(
+            value: value,
+            groupValue: controller.selectedGender.value,
+            onChanged: (value) => controller.selectedGender.value = value!,
+          ),
         ),
         Text(gender),
       ],

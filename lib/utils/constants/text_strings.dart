@@ -38,6 +38,7 @@ class ZTexts {
   static const String orSignUpWith = "or sign up with";
   static const String iAgreeTo = "I agree to";
   static const String privacyPolicy = "Privacy Policy";
+  static const String acceptPrivacyPolicy = "Accept Privacy Policy";
   static const String termsOfUse = "Terms of use";
   static const String verificationCode = "verificationCode";
   static const String resendEmail = "Resend Email";
@@ -70,6 +71,4 @@ class ZTexts {
   // -- Home
   static const String homeAppbarSubTitle = "Welcome to your safe space!";
   static const String homeAppbarTitle = "ZenChat AI";
-
-
 }

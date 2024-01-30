@@ -9,13 +9,13 @@ class ZDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = ZHelperFunctions.isDarkMode(context);
+    final isDarkMode = ZHelperFunctions.isDarkMode(context);
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Flexible(
           child: Divider(
-            color: isDark ? ZColors.darkGrey : ZColors.grey,
+            color: isDarkMode ? ZColors.darkGrey : ZColors.grey,
             thickness: 0.5,
             indent: 40,
             endIndent: 5,
@@ -30,7 +30,7 @@ class ZDivider extends StatelessWidget {
                     .withOpacity(0.6))),
         Flexible(
           child: Divider(
-            color: isDark ? ZColors.darkGrey : ZColors.grey,
+            color: isDarkMode ? ZColors.darkGrey : ZColors.grey,
             thickness: 0.5,
             indent: 5,
             endIndent: 40,

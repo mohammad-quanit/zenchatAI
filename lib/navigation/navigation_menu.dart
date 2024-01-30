@@ -11,14 +11,14 @@ class NavigationMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final navController = Get.put(NavigationController());
-    final isDark = ZHelperFunctions.isDarkMode(context);
+    final isDarkMode = ZHelperFunctions.isDarkMode(context);
     return Scaffold(
         bottomNavigationBar: Obx(
           () => NavigationBar(
             height: 70,
             elevation: 0,
-            backgroundColor: isDark ? ZColors.black : ZColors.white,
-            indicatorColor: isDark
+            backgroundColor: isDarkMode ? ZColors.black : ZColors.white,
+            indicatorColor: isDarkMode
                 ? ZColors.white.withOpacity(0.1)
                 : ZColors.black.withOpacity(0.1),
             selectedIndex: navController.selectedIndex.value,

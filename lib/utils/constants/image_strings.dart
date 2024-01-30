@@ -2,10 +2,11 @@
 
 /// This class contains all the App Images in String formats.
 class ZImages {
-  
   // -- App Logos
-  static const String darkAppLogo = "assets/logos/t-store-splash-logo-black.png";
-  static const String lightAppLogo = "assets/logos/t-store-splash-logo-white.png";
+  static const String darkAppLogo =
+      "assets/logos/t-store-splash-logo-black.png";
+  static const String lightAppLogo =
+      "assets/logos/t-store-splash-logo-white.png";
 
   // -- Social Logos
   static const String google = "assets/logos/google-icon.png";
@@ -35,17 +36,29 @@ class ZImages {
   // static const String acerlogo = "assets/icons/brands/acer_logo.png";
 
   // -- Animations
-  static const String productsIllustration = "assets/images/animations/sammy-line-workout.gif";
-  static const String productsSaleIllustration = "assets/images/animations/sammy-line-sale.png";
-  static const String staticSuccessIllustration = "assets/images/animations/sammy-line-success.png";
-  static const String deliveredInPlaneIllustration = "assets/images/animations/sammy-line-come-back-later.png";
-  static const String deliveredEmailIllustration = "assets/images/animations/sammy-line-man-receives-a-mail.png";
-  static const String verifyIllustration = "assets/images/animations/sammy-line-travel-backpack-with-passport-and-air-ticket.gif";
+  static const String productsIllustration =
+      "assets/images/animations/sammy-line-workout.gif";
+  static const String productsSaleIllustration =
+      "assets/images/animations/sammy-line-sale.png";
+  static const String staticSuccessIllustration =
+      "assets/images/animations/sammy-line-success.png";
+  static const String deliveredInPlaneIllustration =
+      "assets/images/animations/sammy-line-come-back-later.png";
+  static const String deliveredEmailIllustration =
+      "assets/images/animations/sammy-line-man-receives-a-mail.png";
+  static const String verifyIllustration =
+      "assets/images/animations/sammy-line-travel-backpack-with-passport-and-air-ticket.gif";
+
+  static const String fullScreenLoadingAnimation =
+      "assets/images/animations/loader-animation.json";
 
   // -- OnBoarding Texts
-  static const String onBoardingImage1 = "assets/images/on_boarding_images/sammy-line-searching.gif";
-  static const String onBoardingImage2 = "assets/images/on_boarding_images/sammy-line-shopping.gif";
-  static const String onBoardingImage3 = "assets/images/on_boarding_images/sammy-line-delivery.gif";
+  static const String onBoardingImage1 =
+      "assets/images/on_boarding_images/sammy-line-searching.gif";
+  static const String onBoardingImage2 =
+      "assets/images/on_boarding_images/sammy-line-shopping.gif";
+  static const String onBoardingImage3 =
+      "assets/images/on_boarding_images/sammy-line-delivery.gif";
 
   // -- Products
   // static const String productImage1 = "assets/images/products/nike-shoes.png";
@@ -126,18 +139,18 @@ class ZImages {
   // static const String productImage76 = "assets/images/products/slipper-product-3.png";
   // static const String productImage77= "assets/images/products/slipper-product.png";
 
-
-
-
   // -- Product Reviews
   // static const String userProfileImage1 = "assets/images/reviews/review_profile_image_1.jpg";
   // static const String userProfileImage2 = "assets/images/reviews/review_profile_image_2.jpeg";
   // static const String userProfileImage3 = "assets/images/reviews/review_profile_image_3.jpeg";
 
   //Banners
-  static const String promoBanner1 = "assets/images/products/promo-banner-1.png";
-  static const String promoBanner2 = "assets/images/products/promo-banner-2.png";
-  static const String promoBanner3 = "assets/images/products/promo-banner-3.png";
+  static const String promoBanner1 =
+      "assets/images/products/promo-banner-1.png";
+  static const String promoBanner2 =
+      "assets/images/products/promo-banner-2.png";
+  static const String promoBanner3 =
+      "assets/images/products/promo-banner-3.png";
   static const String banner1 = "assets/images/banners/banner_1.jpg";
   static const String banner2 = "assets/images/banners/banner_2.jpg";
   static const String banner3 = "assets/images/banners/banner_3.jpg";
@@ -147,14 +160,12 @@ class ZImages {
   static const String banner7 = "assets/images/banners/banner_7.jpg";
   static const String banner8 = "assets/images/banners/banner_8.jpg";
 
-
   //Profile
   static const String user = "assets/images/content/user.png";
 
   // Login, SignUp, Verify Email
   static const String loginImg = "assets/images/content/login-image.png";
   static const String verifyEmail = "assets/images/content/email-verify.png";
-
 
   // -- Payment Methods
   // static const String applePay = "assets/icons/payment_methods/apple-pay.png";
@@ -167,4 +178,3 @@ class ZImages {
   // static const String paytm = "assets/icons/payment_methods/paytm.png";
   // static const String successfulPaymentIcon = "assets/icons/payment_methods/successful_payment_icon.png";
 }
-
