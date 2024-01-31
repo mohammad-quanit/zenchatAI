@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:zenchatai/data/repositories/auth_repository.dart';
-import 'package:zenchatai/data/repositories/user_repository.dart';
+import 'package:zenchatai/data/repositories/auth/auth_repository.dart';
+import 'package:zenchatai/data/repositories/supabase/user_supabase_table.dart';
+import 'package:zenchatai/data/repositories/user/user_repository_impl.dart';
 import 'package:zenchatai/features/authentication/models/user_model.dart';
 import 'package:zenchatai/features/authentication/screens/EmailVerification/verify_email.dart';
-import 'package:zenchatai/features/authentication/screens/Signup/widgets/gender_selector.dart';
 import 'package:zenchatai/utils/constants/image_strings.dart';
 import 'package:zenchatai/utils/constants/text_strings.dart';
 import 'package:zenchatai/utils/helpers/network_manager.dart';
@@ -30,7 +30,7 @@ class SignupController extends GetxController {
   final RxBool privacyPolicy = true.obs; // observer for privacy policy checkbox
   final RxBool hidePassword = true.obs; // observer for showing/hiding pw
 
-  void isFormValid() {}
+  // void isFormValid() {}
 
   Future<void> signup() async {
     try {
@@ -77,7 +77,8 @@ class SignupController extends GetxController {
           email: emailController.text.trim(),
           gender: selectedGender.value);
 
-      final userRepository = Get.put(UserRepository());
+      final userRepository =
+          Get.put(UserRepositoryImpl(const UserSupabaseTable()));
       await userRepository.saveUserRecord(newUser);
 
       ZFullScreenLoader.stopLoading();

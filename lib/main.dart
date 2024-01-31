@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:zenchatai/app.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:zenchatai/data/repositories/auth_repository.dart';
+import 'package:zenchatai/data/repositories/auth/auth_repository.dart';
 
 Future<void> main() async {
   final WidgetsBinding widgetsBinding =

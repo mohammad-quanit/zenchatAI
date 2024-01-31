@@ -21,7 +21,7 @@ class AuthRepository extends GetxController {
   }
 
   //// Functionto show relavant screen
-  screenRedirect() async {
+  void screenRedirect() async {
     // local storage
     deviceStorage.writeIfNull("IsFirstTime", true);
     deviceStorage.read("IsFirstTime") != true
@@ -29,7 +29,7 @@ class AuthRepository extends GetxController {
         : Get.offAll(() => const OnboardingScreen());
   }
 
-  /// Register User
+  /// Register User Method
   Future<AuthResponse> signUpEmailAndPassword(
       String email, String password) async {
     try {
@@ -46,17 +46,17 @@ class AuthRepository extends GetxController {
     }
   }
 
-  /// Sign In User
-  Future<String> signInEmailAndPassword(String email, String password) async {
+  /// Sign In User Method
+  Future<String?> signInEmailAndPassword(String email, String password) async {
     final response = await _auth.signInWithPassword(
       email: email,
       password: password,
     );
 
     final userId = response.user?.id;
-    if (userId == null) {
-      throw UnimplementedError();
-    }
+    // if (userId == null) {
+    //   throw UnimplementedError();
+    // }
 
     return userId;
   }
