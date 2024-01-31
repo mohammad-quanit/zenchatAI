@@ -47,7 +47,7 @@ class VerifyEmailScreen extends StatelessWidget {
               ),
 
               Text(
-                "xyz@support.com",
+                "zenchatai@support.com",
                 style: Theme.of(context).textTheme.labelLarge,
                 textAlign: TextAlign.center,
               ),

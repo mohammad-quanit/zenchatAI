@@ -22,7 +22,7 @@ class ZAppBarTheme {
     scrolledUnderElevation: 0,
     backgroundColor: Colors.transparent,
     surfaceTintColor: Colors.transparent,
-    iconTheme: IconThemeData(color: ZColors.black, size: ZSizes.iconMd),
+    iconTheme: IconThemeData(color: ZColors.white, size: ZSizes.iconMd),
     actionsIconTheme: IconThemeData(color: ZColors.white, size: ZSizes.iconMd),
     titleTextStyle: TextStyle(
         fontSize: 18.0, fontWeight: FontWeight.w600, color: ZColors.white),

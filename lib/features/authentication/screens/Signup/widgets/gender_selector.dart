@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:zenchatai/features/authentication/controllers/signup_controller.dart';
+import 'package:zenchatai/utils/constants/colors.dart';
 
 class GenderSelector extends StatelessWidget {
   const GenderSelector({super.key});
@@ -39,6 +40,7 @@ class GenderSelector extends StatelessWidget {
       children: [
         Obx(
           () => Radio(
+            activeColor: ZColors.primary,
             value: value,
             groupValue: controller.selectedGender.value,
             onChanged: (value) => controller.selectedGender.value = value!,
