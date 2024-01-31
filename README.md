@@ -1,6 +1,7 @@
-# zenchatai
+# ZenchatAI
 
-A new Flutter project.
+A Mental Health Guidance App designed to provide support and guidance for individuals seeking assistance with their mental well-being developed on Flutter and supabase.
+
 
 ## Getting Started
 
