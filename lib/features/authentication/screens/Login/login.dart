@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:zenchatai/common/styles/spacing_styles.dart';
 import 'package:zenchatai/common/widgets/divider_text.dart';
 import 'package:zenchatai/common/widgets/social_buttons.dart';
-import 'package:zenchatai/features/authentication/controllers/auth_controller.dart';
 import 'package:zenchatai/features/authentication/screens/Login/widgets/login_form.dart';
 import 'package:zenchatai/features/authentication/screens/Login/widgets/login_header.dart';
 import 'package:zenchatai/utils/constants/sizes.dart';
@@ -14,8 +12,6 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(AuthController());
-
     return const Scaffold(
       body: SingleChildScrollView(
           child: Padding(

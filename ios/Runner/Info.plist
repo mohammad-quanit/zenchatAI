@@ -12,6 +12,7 @@
 				<array>
 					<!-- Copied from GoogleService-Info.plist key REVERSED_CLIENT_ID -->
 					<string>com.googleusercontent.apps.175180413005-t6bhpgd0on83rpb3ctvc5bsilio90p92</string>
+					<string>io.supabase.flutterquickstart</string>
 				</array>
 				<key>GoogleSignInURLScheme</key>
 				<string>com.googleusercontent.apps.175180413005-t6bhpgd0on83rpb3ctvc5bsilio90p92</string>

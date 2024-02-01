@@ -65,7 +65,7 @@ class SignupController extends GetxController {
           ZImages.fullScreenLoadingAnimation);
 
       /// Register user in supabase authentication
-      final userResponse = await _auth.signUpEmailAndPassword(
+      final userResponse = await _auth.signUpWithEmailAndPassword(
           emailController.text.trim(), passwordController.text.trim());
 
       /// Save auth user data in supabase

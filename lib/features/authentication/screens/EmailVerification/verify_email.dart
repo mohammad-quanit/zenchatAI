@@ -14,6 +14,11 @@ class VerifyEmailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      /// The close icon in the app bar is used to log out the user and redirect them to the login screen.
+      /// This approach is taken to handle scenarios where the user enters the registration process,
+      /// and the data is stored. Upon reopening the app, it checks if the email is verified.
+      /// If not verified, the app always navigates to the verification screen.
+
       appBar: AppBar(
         automaticallyImplyLeading: false,
         actions: [
