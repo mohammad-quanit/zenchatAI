@@ -25,3 +25,5 @@ create table document_sections (
   content text not null,
   embedding vector (384)
 );
+
+create index on document_sections using hnsw (embedding vector_ip_ops);

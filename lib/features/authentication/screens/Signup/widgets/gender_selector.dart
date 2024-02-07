@@ -35,7 +35,7 @@ class GenderSelector extends StatelessWidget {
   }
 
   Widget _buildRadioButton(String gender, String value) {
-    final controller = SignupController.instance;
+    final SignupController controller = SignupController.instance;
     return Row(
       children: [
         Obx(

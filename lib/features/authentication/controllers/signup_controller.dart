@@ -30,8 +30,6 @@ class SignupController extends GetxController {
   final RxBool privacyPolicy = true.obs; // observer for privacy policy checkbox
   final RxBool hidePassword = true.obs; // observer for showing/hiding pw
 
-  // void isFormValid() {}
-
   Future<void> signup() async {
     try {
       /// Check internet connectivity
@@ -107,6 +105,7 @@ class SignupController extends GetxController {
     firstNameController.dispose();
     lastNameController.dispose();
     usernameController.dispose();
+    // super.dispose();
     super.onClose();
   }
 }

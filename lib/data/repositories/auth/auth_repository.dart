@@ -8,6 +8,7 @@ import 'package:zenchatai/features/authentication/screens/Onboarding/onboarding.
 import 'package:zenchatai/main.dart';
 import 'package:zenchatai/navigation/navigation_menu.dart';
 import 'package:zenchatai/utils/constants/text_strings.dart';
+import 'package:zenchatai/utils/exceptions/auth_exceptions.dart';
 import 'package:zenchatai/utils/exceptions/format_exceptions.dart';
 import 'package:zenchatai/utils/exceptions/platform_exceptions.dart';
 
@@ -53,14 +54,17 @@ class AuthRepository extends GetxController {
     try {
       final AuthResponse response =
           await _auth.signUp(email: email, password: password);
+
+      if (response.user!.identities!.isEmpty) {
+        throw ZSupabaseAuthException('email-already-in-use');
+      }
       return response;
     } on FormatException catch (_) {
       throw const ZFormatException();
     } on PlatformException catch (e) {
       throw ZPlatformException(e.code).message;
     } catch (error) {
-      print(error.toString());
-      throw ZTexts.catchMessage;
+      throw '${ZTexts.catchMessage} $error';
     }
   }
 

@@ -11,7 +11,7 @@ class PolicyAgreement extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = SignupController.instance;
+    final SignupController controller = SignupController.instance;
     final isDarkMode = ZHelperFunctions.isDarkMode(context);
 
     return Row(
