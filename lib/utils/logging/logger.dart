@@ -11,12 +11,12 @@ class ZLoggerHelper {
     _logger.d(message);
   }
 
-  static void info(String message) {
-    _logger.i(message);
+  static void info(Object object) {
+    _logger.i(object);
   }
 
-  static void warning(String message) {
-    _logger.w(message);
+  static void warning(Object object) {
+    _logger.w(object);
   }
 
   static void error(String message, [dynamic error]) {

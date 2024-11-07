@@ -40,6 +40,7 @@ class AuthRepository extends GetxController {
   void _setupAuthListener() {
     supabase.auth.onAuthStateChange.listen((data) {
       final event = data.event;
+      print(event);
       if (event == AuthChangeEvent.signedIn) {
         Get.off(() => const NavigationMenu());
       } else {
