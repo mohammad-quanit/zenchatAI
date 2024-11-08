@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_typing_indicator/flutter_typing_indicator.dart';
 import 'package:get/get.dart';
-// import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:graphql/client.dart';
-
 import 'package:zenchatai/features/chatbot/controllers/chat_controller.dart';
-
+import 'package:zenchatai/utils/constants/colors.dart';
 
 class ChatScreen extends StatelessWidget {
-  const ChatScreen({super.key});
-  static final GraphQLController _controller = Get.put(GraphQLController());
-  static final TextEditingController _textController = TextEditingController();
+  ChatScreen({super.key});
+
+  final BotMessageController _controller = Get.put(BotMessageController());
+  final TextEditingController _textController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('ZenBot')),
+      appBar: AppBar(title: const Text('Zen Assistant Bot')),
       body: Column(
         children: [
           Expanded(
@@ -23,22 +22,29 @@ class ChatScreen extends StatelessWidget {
                 reverse: true,
                 itemCount: _controller.messages.length,
                 itemBuilder: (context, index) {
-                  final message = _controller.messages[_controller.messages.length - index - 1];
-                  final isUserMessage = message['sender'] == 'user';
+                  // Display each message in reverse order. The new message appears last.
+                  final messageObj = _controller
+                      .messages[_controller.messages.length - index - 1];
+                  final isUserMessage = messageObj['sender'] == 'user';
+                  final isBotMessage = messageObj['sender'] == 'bot';
 
                   return Align(
-                    alignment: isUserMessage ? Alignment.centerRight : Alignment.centerLeft,
+                    alignment: isUserMessage
+                        ? Alignment.centerRight
+                        : Alignment.centerLeft,
                     child: Container(
                       padding: const EdgeInsets.all(12),
-                      margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 4, horizontal: 8),
                       decoration: BoxDecoration(
-                        color: isUserMessage ? Colors.blueAccent : Colors.grey[300],
+                        color: isUserMessage ? ZColors.info : ZColors.grey,
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Text(
-                        message['text'] ?? '',
+                        messageObj['text'] ?? '',
                         style: TextStyle(
-                          color: isUserMessage ? Colors.white : Colors.black,
+                          color:
+                              isUserMessage ? ZColors.textWhite : ZColors.black,
                         ),
                       ),
                     ),
@@ -47,11 +53,38 @@ class ChatScreen extends StatelessWidget {
               );
             }),
           ),
-          if (_controller.isLoading.value)
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: CircularProgressIndicator(),
-            ),
+          // Display the typing indicator below the messages if loading
+          Obx(() {
+            if (_controller.isLoading.value) {
+              return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Align(
+                    alignment: Alignment.centerLeft, // Align to the left
+                    child: TypingIndicator(
+                      dotSize: 10,
+                      isGradient: true,
+                      backgroundColor: Colors.indigo.shade100,
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(12),
+                        topRight: Radius.circular(12),
+                        bottomLeft: Radius.circular(12),
+                        bottomRight: Radius.circular(0),
+                      ),
+                      dotGradient: const LinearGradient(
+                        colors: [
+                          Colors.blue,
+                          Colors.indigo,
+                        ],
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                      ),
+                    ),
+                  ));
+            } else {
+              return const SizedBox
+                  .shrink(); // Empty space when loading is false
+            }
+          }),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
@@ -82,107 +115,3 @@ class ChatScreen extends StatelessWidget {
     );
   }
 }
-
-
-//
-// class ChatScreen extends StatelessWidget {
-//   const ChatScreen({super.key});
-//   static final GraphQLController _chat_controller = Get.put(GraphQLController());
-//
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: const Text('ZenBot'),
-//       ),
-//       body: Column(
-//         children: [
-//           Expanded(
-//             child: ListView.builder(
-//               reverse: true,
-//               itemCount: messages.length,
-//               itemBuilder: (context, index) {
-//                 return ChatMessage(message: messages[index]);
-//               },
-//             ),
-//           ),
-//           _buildInputField(),
-//         ],
-//       ),
-//     );
-//   }
-//
-//   Widget _buildInputField() {
-//     return Container(
-//       padding: const EdgeInsets.all(8.0),
-//       child: Row(
-//         children: [
-//           const Expanded(
-//             child: TextField(
-//               decoration: InputDecoration(
-//                 hintText: 'Type a message...',
-//               ),
-//             ),
-//           ),
-//           IconButton(
-//             icon: const Icon(Icons.send),
-//             onPressed: () {
-//               // Add your logic to send a message
-//               _hypermodeAI();
-//             },
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
-//
-// class ChatMessage extends StatelessWidget {
-//   final String message;
-//
-//   const ChatMessage({super.key, required this.message});
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Padding(
-//       padding: const EdgeInsets.all(8.0),
-//       child: Align(
-//         alignment: Alignment.topLeft,
-//         child: Container(
-//           decoration: BoxDecoration(
-//             color: Colors.blue,
-//             borderRadius: BorderRadius.circular(8.0),
-//           ),
-//           padding: const EdgeInsets.all(8.0),
-//           child: Text(
-//             message,
-//             style: const TextStyle(color: Colors.white),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
-//
-// final List<String> messages = [
-//   'Hello!',
-//   'Hi there!',
-//   'How are you?',
-//   'I\'m good, thanks!',
-// ];
-//
-//
-// Future _googleGemini() async {
-//   // Access your API key as an environment variable (see "Set up your API key" above)
-//   final apiKey = dotenv.env['GEMINI_API_KEY'];
-//   if (apiKey == null) {
-//     print('No \$API_KEY environment variable');
-//     exit(1);
-//   }
-//   // For text-only input, use the gemini-pro model
-//   final model = GenerativeModel(model: 'gemini-pro', apiKey: apiKey);
-//   final content = [Content.text('What is CBT? Explain in detail?')];
-//   final response = await model.generateContent(content);
-//   print(response.text);
-// }

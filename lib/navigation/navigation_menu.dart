@@ -31,7 +31,7 @@ class NavigationMenu extends StatelessWidget {
               ),
               NavigationDestination(
                 icon: Icon(Iconsax.voice_cricle),
-                label: 'ChatBot',
+                label: 'Zen Assistant',
               ),
               NavigationDestination(
                 icon: Icon(Iconsax.people),

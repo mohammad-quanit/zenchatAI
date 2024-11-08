@@ -7,7 +7,7 @@ import 'package:zenchatai/main.dart';
 
 class ChatRepositoryImpl extends GetxController implements ChatRepository {
   static ChatRepositoryImpl get instance => Get.find();
-  final GraphQLService _graphqlService = GraphQLService();
+  // final GraphQLService _graphqlService = GraphQLService();
 
 
   final SupabaseTable _supabaseTable;

@@ -72,4 +72,7 @@ class ZTexts {
   // -- Home
   static const String homeAppbarSubTitle = "Welcome to your safe space!";
   static const String homeAppbarTitle = "ZenChat AI";
+
+  // -- Chat Bot
+  static const String chatBotInstructionMessage = "Hello from Assistant. Limit it to 50 words";
 }

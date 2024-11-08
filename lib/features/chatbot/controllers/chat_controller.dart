@@ -1,57 +1,54 @@
+import 'dart:convert';
+
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
-import 'package:graphql/client.dart';
-// import 'package:graphql_flutter/graphql_flutter.dart';
-
 import 'package:http/http.dart' as http;
+import 'package:zenchatai/utils/constants/text_strings.dart';
 import 'package:zenchatai/utils/logging/logger.dart';
 
-class GraphQLService {
+class BotMessageService {
   static final String _endpoint = dotenv.env['LOCAL_GRAPHQL_ENDPOINT']!;
 
-  final GraphQLClient _client = GraphQLClient(
-    cache: GraphQLCache(),
-    link: HttpLink(
-      _endpoint,
-      defaultHeaders: {
-        'Accept-Encoding': 'gzip, deflate, br',
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Connection': 'keep-alive',
-        'DNT': '1',
-      },
-      httpClient: http.Client(),
-    ),
-  );
+  Future<Map<String, dynamic>?> botMsgQuery(String query,
+      {Map<String, dynamic>? variables}) async {
+    final headers = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+    };
 
-  Future<Map<String, dynamic>?> query(
-      String queryString, {
-        Map<String, dynamic>? variables,
-      }) async {
+    final body = jsonEncode({
+      'query': query,
+      'variables': variables ?? {},
+    });
+
     try {
-      final QueryResult result = await _client.query(
-        QueryOptions(
-          document: gql(queryString),
-          variables: variables ?? {},
-          // fetchPolicy: FetchPolicy.noCache,
-        ),
+      final response = await http.post(
+        Uri.parse(_endpoint),
+        headers: headers,
+        body: body,
       );
 
-      if (result.hasException) {
-        ZLoggerHelper.warning(result);
-        throw result.exception!;
+      if (response.statusCode == 200) {
+        final responseBody = jsonDecode(response.body);
+        if (responseBody['errors'] != null) {
+          ZLoggerHelper.warning("GraphQL errors: ${responseBody['errors']}");
+          throw Exception("GraphQL error: ${responseBody['errors']}");
+        }
+        return responseBody['data'];
+      } else {
+        throw Exception("Failed to connect: ${response.statusCode}");
       }
-
-      return result.data;
     } catch (e) {
-      ZLoggerHelper.error('GraphQL query error...', e.toString());
-      throw e.toString();
+      ZLoggerHelper.error("HTTP error: $e");
+      throw Exception("HTTP error: $e");
     }
   }
 }
 
-class GraphQLController extends GetxController {
-  final GraphQLService _graphqlService = GraphQLService();
+class BotMessageController extends GetxController {
+  static BotMessageController get instance => Get.find();
+
+  final BotMessageService _botMsgService = BotMessageService();
 
   var messages = <Map<String, String>>[].obs;
   var isLoading = false.obs;
@@ -60,22 +57,20 @@ class GraphQLController extends GetxController {
     // Add the user's message to the messages list
     messages.add({'sender': 'user', 'text': userMessage});
     isLoading.value = true;
-
-    const query = """
-      query GenerateText {
-    generateText(instruction: "Hello from Assistant. Limit it to 50 words", prompt: "what is dgraph?") {
-    	text
-    }
-}
-    """;
+    const instructionMsg = ZTexts.chatBotInstructionMessage;
+    const String query = '''
+      query GenerateText(\$prompt: String!) {
+        generateText(
+          instruction: "$instructionMsg",
+          prompt: \$prompt
+        )
+      }
+    ''';
 
     try {
-      final data = await _graphqlService.query(
-        query,
-        variables: {'prompt': userMessage},
-      );
-
-      final botResponse = data?['generateText']?['text'] ?? 'No response';
+      final data = await _botMsgService
+          .botMsgQuery(query, variables: {'prompt': userMessage});
+      final botResponse = data?['generateText'] ?? 'No response';
       messages.add({'sender': 'bot', 'text': botResponse});
     } catch (e) {
       messages.add({'sender': 'bot', 'text': 'Error: $e'});

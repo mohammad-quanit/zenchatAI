@@ -7,15 +7,15 @@ class ZLoggerHelper {
     level: Level.debug,
   );
 
-  static void debug(String message) {
-    _logger.d(message);
+  static void debug(Object? object) {
+    _logger.d(object);
   }
 
-  static void info(Object object) {
+  static void info(Object? object) {
     _logger.i(object);
   }
 
-  static void warning(Object object) {
+  static void warning(Object? object) {
     _logger.w(object);
   }
 
