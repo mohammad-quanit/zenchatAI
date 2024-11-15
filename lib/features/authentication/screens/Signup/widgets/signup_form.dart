@@ -114,7 +114,7 @@ class SignupForm extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () => controller.signup(),
+                onPressed: () => controller.signUp(),
                 child: const Text(ZTexts.createAccount),
               ),
             ),

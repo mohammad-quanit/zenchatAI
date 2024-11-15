@@ -13,11 +13,14 @@ class PrimaryHeaderContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Calculate 40% of the screen height
+    final double containerHeight = MediaQuery.of(context).size.height * 0.4;
+
     return CurvedEdgesContainer(
       child: Container(
         color: ZColors.primary,
         child: SizedBox(
-          height: 350,
+          height: containerHeight,
           child: Stack(children: [
             Positioned(
               top: -150,

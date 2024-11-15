@@ -1,28 +1,47 @@
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:zenchatai/main.dart';
 import 'package:zenchatai/features/authentication/screens/Login/login.dart';
+import 'package:zenchatai/utils/logging/logger.dart';
+import 'package:zenchatai/utils/popups/loaders.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final userId = supabase.auth.currentSession;
+    print(userId);
+
     final user = supabase.auth.currentUser;
+    ZLoggerHelper.info(user?.id);
     final profileImageUrl = user?.userMetadata?['avatar_url'];
     final fullName = user?.userMetadata?['full_name'];
+
+
+    Future<void> signOut() async {
+      try {
+        await supabase.auth.signOut();
+      } on AuthException catch (error) {
+        Zloaders.errorSnackBar(title: 'Oh Snap!', message: error.message);
+
+      } catch (error) {
+        Zloaders.errorSnackBar(title: 'Oh Snap!', message: error.toString());
+      } finally {
+        if (context.mounted) {
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => const LoginScreen()),
+          );
+        }
+      }
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Profile'),
         actions: [
           TextButton(
-            onPressed: () async {
-              await supabase.auth.signOut();
-              if (context.mounted) {
-                Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => const LoginScreen()),
-                );
-              }
-            },
+            onPressed: signOut,
             child: const Text('Sign out'),
           )
         ],

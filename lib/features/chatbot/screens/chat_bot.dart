@@ -3,6 +3,7 @@ import 'package:flutter_typing_indicator/flutter_typing_indicator.dart';
 import 'package:get/get.dart';
 import 'package:zenchatai/features/chatbot/controllers/chat_controller.dart';
 import 'package:zenchatai/utils/constants/colors.dart';
+import 'package:zenchatai/utils/constants/sizes.dart';
 
 class ChatScreen extends StatelessWidget {
   ChatScreen({super.key});
@@ -37,7 +38,7 @@ class ChatScreen extends StatelessWidget {
                       margin: const EdgeInsets.symmetric(
                           vertical: 4, horizontal: 8),
                       decoration: BoxDecoration(
-                        color: isUserMessage ? ZColors.info : ZColors.grey,
+                        color: isUserMessage ? ZColors.info : Colors.green.shade100,
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Text(
@@ -45,6 +46,8 @@ class ChatScreen extends StatelessWidget {
                         style: TextStyle(
                           color:
                               isUserMessage ? ZColors.textWhite : ZColors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: ZSizes.fontSizeLg
                         ),
                       ),
                     ),
@@ -72,7 +75,7 @@ class ChatScreen extends StatelessWidget {
                       ),
                       dotGradient: const LinearGradient(
                         colors: [
-                          Colors.blue,
+                          Colors.green,
                           Colors.indigo,
                         ],
                         begin: Alignment.centerLeft,
@@ -95,11 +98,14 @@ class ChatScreen extends StatelessWidget {
                     decoration: const InputDecoration(
                       hintText: 'Type your message...',
                       border: OutlineInputBorder(),
+
                     ),
                   ),
                 ),
                 IconButton(
                   icon: const Icon(Icons.send),
+                  color: ZColors.primary,
+
                   onPressed: () {
                     if (_textController.text.trim().isNotEmpty) {
                       _controller.sendMessage(_textController.text.trim());

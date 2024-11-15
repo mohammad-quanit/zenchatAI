@@ -11,14 +11,14 @@ class LoginHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDarkMode = ZHelperFunctions.isDarkMode(context);
+    // final isDarkMode = ZHelperFunctions.isDarkMode(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Image(
+        const Image(
             height: 200,
             image:
-                AssetImage(isDarkMode ? ZImages.loginImg : ZImages.loginImg)),
+                AssetImage(ZImages.loginImg)),
         const SizedBox(height: ZSizes.lg),
         Text(ZTexts.loginTitle,
             style: Theme.of(context).textTheme.headlineMedium),

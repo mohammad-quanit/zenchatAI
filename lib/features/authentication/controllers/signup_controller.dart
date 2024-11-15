@@ -8,6 +8,7 @@ import 'package:zenchatai/features/authentication/screens/EmailVerification/veri
 import 'package:zenchatai/utils/constants/image_strings.dart';
 import 'package:zenchatai/utils/constants/text_strings.dart';
 import 'package:zenchatai/utils/helpers/network_manager.dart';
+import 'package:zenchatai/utils/logging/logger.dart';
 import 'package:zenchatai/utils/popups/fullscreen_loader.dart';
 import 'package:zenchatai/utils/popups/loaders.dart';
 
@@ -30,7 +31,7 @@ class SignupController extends GetxController {
   final RxBool privacyPolicy = true.obs; // observer for privacy policy checkbox
   final RxBool hidePassword = true.obs; // observer for showing/hiding pw
 
-  Future<void> signup() async {
+  Future<void> signUp() async {
     try {
       /// Check internet connectivity
       final isConnected = await NetworkManager.instance.isConnected();
@@ -66,6 +67,12 @@ class SignupController extends GetxController {
       final userResponse = await _auth.signUpWithEmailAndPassword(
           emailController.text.trim(), passwordController.text.trim());
 
+      // Ensure that the user response has a user and that a verification email was sent
+      if (userResponse.user == null) {
+        throw Exception("Signup failed. Please try again.");
+      }
+
+
       /// Save auth user data in supabase
       final newUser = UserModel(
           id: userResponse.user!.id,
@@ -91,6 +98,8 @@ class SignupController extends GetxController {
     } catch (e) {
       // Remove loader
       ZFullScreenLoader.stopLoading();
+
+      ZLoggerHelper.error(e.toString(), e);
 
       // Show the error :-(
       Zloaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());

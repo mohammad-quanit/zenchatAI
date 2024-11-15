@@ -11,6 +11,7 @@ import 'package:zenchatai/utils/constants/text_strings.dart';
 import 'package:zenchatai/utils/exceptions/auth_exceptions.dart';
 import 'package:zenchatai/utils/exceptions/format_exceptions.dart';
 import 'package:zenchatai/utils/exceptions/platform_exceptions.dart';
+import 'package:zenchatai/utils/logging/logger.dart';
 
 class AuthRepository extends GetxController {
   static AuthRepository get instance => Get.find();
@@ -27,7 +28,7 @@ class AuthRepository extends GetxController {
     _setupAuthListener();
   }
 
-  //// Functionto show relavant screen
+  //// Function to show relavant screen
   void _screenRedirect() async {
     // local storage
     await deviceStorage.writeIfNull("IsFirstTime", true);
@@ -86,7 +87,7 @@ class AuthRepository extends GetxController {
         email: email,
         password: password,
       );
-
+      ZLoggerHelper.warning(response.session);
       final userId = response.user?.id;
       return userId;
     } on FormatException catch (_) {
@@ -94,7 +95,7 @@ class AuthRepository extends GetxController {
     } on PlatformException catch (e) {
       throw ZPlatformException(e.code).message;
     } catch (error) {
-      print(error.toString());
+      ZLoggerHelper.warning(error.toString());
       throw ZTexts.catchMessage;
     }
   }

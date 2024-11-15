@@ -52,6 +52,9 @@ class ZImages {
   static const String fullScreenLoadingAnimation =
       "assets/images/animations/loader-animation.json";
 
+  static const String docerAnimation =
+      "assets/images/animations/141594-animation-of-docer.json";
+
   // -- OnBoarding Texts
   static const String onBoardingImage1 =
       "assets/images/on_boarding_images/sammy-line-searching.gif";
@@ -167,7 +170,9 @@ class ZImages {
   static const String loginImg = "assets/images/content/login-image.png";
   static const String verifyEmail = "assets/images/content/email-verify.png";
 
-  // -- Payment Methods
+  static const String motivationCardIllustration = "assets/images/content/motivation-section.png";
+
+// -- Payment Methods
   // static const String applePay = "assets/icons/payment_methods/apple-pay.png";
   // static const String googlePay = "assets/icons/payment_methods/google-pay.png";
   // static const String creditCard = "assets/icons/payment_methods/credit-card.png";
