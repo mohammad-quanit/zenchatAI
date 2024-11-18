@@ -20,8 +20,9 @@ class SigninController extends GetxController {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
+
   // Form key for validation
-  GlobalKey<FormState> signInFormKey = GlobalKey<FormState>();
+  // GlobalKey<FormState> signInFormKey = GlobalKey<FormState>();
 
   Future<void> signIn() async {
     try {
@@ -35,10 +36,11 @@ class SigninController extends GetxController {
       }
 
       ///  Form validation
-      if (!signInFormKey.currentState!.validate()) {
-        ZFullScreenLoader.stopLoading();
-        return;
-      }
+      // print(signInFormKey.currentState);
+      // if (!signInFormKey.currentState!.validate()) {
+      //   ZFullScreenLoader.stopLoading();
+      //   return;
+      // }
 
       // Save Remember me if selected
       if(rememberMe.value) {
@@ -58,7 +60,7 @@ class SigninController extends GetxController {
       // Remove loader
       ZFullScreenLoader.stopLoading();
 
-      ZLoggerHelper.error(e.toString(), e);
+      print(e);
 
       // Show the error :-(
       Zloaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());

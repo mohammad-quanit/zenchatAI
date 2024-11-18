@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
@@ -37,17 +38,27 @@ class SocialButtons extends StatelessWidget {
 }
 
 Future<AuthResponse> _googleSignIn() async {
-  /// Web Client ID that you registered with Google Cloud.
   final webClientId = dotenv.env['WEB_CLIENT_ID'];
-
-  /// iOS Client ID that you registered with Google Cloud.
   final iosClientId = dotenv.env['IOS_CLIENT_ID'];
+  final androidClientId = dotenv.env['ANDROID_CLIENT_ID'];
+
+  String? getClientId() {
+    if (defaultTargetPlatform == TargetPlatform.android) {
+      return androidClientId;
+    } else if (defaultTargetPlatform == TargetPlatform.iOS) {
+      return iosClientId;
+    } else if (kIsWeb) {
+      return webClientId;
+    } else {
+      throw UnsupportedError("Unsupported platform");
+    }
+  }
 
   // Google sign in on Android will work without providing the Android
   // Client ID registered on Google Cloud.
 
   final GoogleSignIn googleSignIn = GoogleSignIn(
-    clientId: iosClientId,
+    clientId: getClientId(),
     serverClientId: webClientId,
   );
   final googleUser = await googleSignIn.signIn();

@@ -171,6 +171,12 @@ class ZImages {
   static const String verifyEmail = "assets/images/content/email-verify.png";
 
   static const String motivationCardIllustration = "assets/images/content/motivation-section.png";
+  static const String exerciseFeature = "assets/images/content/exercise.png";
+  static const String relaxationFeature = "assets/images/content/relaxation1.png";
+  static const String meditationFeature = "assets/images/content/meditation.png";
+
+
+
 
 // -- Payment Methods
   // static const String applePay = "assets/icons/payment_methods/apple-pay.png";

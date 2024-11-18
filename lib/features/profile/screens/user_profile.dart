@@ -10,11 +10,8 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final userId = supabase.auth.currentSession;
-    print(userId);
-
+    final userSession = supabase.auth.currentSession;
     final user = supabase.auth.currentUser;
-    ZLoggerHelper.info(user?.id);
     final profileImageUrl = user?.userMetadata?['avatar_url'];
     final fullName = user?.userMetadata?['full_name'];
 

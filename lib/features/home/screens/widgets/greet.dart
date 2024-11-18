@@ -3,6 +3,7 @@ import 'package:zenchatai/main.dart';
 import 'package:zenchatai/utils/constants/colors.dart';
 import 'package:zenchatai/utils/constants/text_strings.dart';
 import 'package:zenchatai/utils/helpers/helper_functions.dart';
+import 'package:zenchatai/utils/logging/logger.dart';
 
 class Greet extends StatelessWidget {
   const Greet({
@@ -12,11 +13,17 @@ class Greet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final user = supabase.auth.currentUser;
+    var fName;
 
-    // Added dummy user string just for development
-    // it should never be dummy.
-    final String fName = ZHelperFunctions.getFirstName(
-        user?.userMetadata?['full_name'] ?? "Guest");
+    if (user?.appMetadata['provider'] != "email") {
+      fName = user!.userMetadata?["full_name"] ?? "Guest";
+    } else {
+      // Added dummy user string just for development
+      // it should never be dummy.
+      fName = "Guest";
+    }
+
+    fName = ZHelperFunctions.getFirstName(fName);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

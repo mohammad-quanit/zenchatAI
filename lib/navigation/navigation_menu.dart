@@ -34,8 +34,8 @@ class NavigationMenu extends StatelessWidget {
                 label: 'Zen Assistant',
               ),
               NavigationDestination(
-                icon: Icon(Iconsax.people),
-                label: 'Community',
+                icon: Icon(Iconsax.moon),
+                label: 'Sleep Pattern',
               ),
               NavigationDestination(
                 icon: Icon(Iconsax.user),

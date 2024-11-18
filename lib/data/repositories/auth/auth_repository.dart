@@ -5,6 +5,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:zenchatai/features/authentication/screens/Login/login.dart';
 import 'package:zenchatai/features/authentication/screens/Onboarding/onboarding.dart';
+import 'package:zenchatai/features/home/screens/home.dart';
 import 'package:zenchatai/main.dart';
 import 'package:zenchatai/navigation/navigation_menu.dart';
 import 'package:zenchatai/utils/constants/text_strings.dart';
@@ -33,7 +34,9 @@ class AuthRepository extends GetxController {
     // local storage
     await deviceStorage.writeIfNull("IsFirstTime", true);
     await deviceStorage.read("IsFirstTime") != true
-        ? Get.offAll(() => const LoginScreen())
+        ? Get.offAll(() => supabase.auth.currentUser != null
+            ? const HomeScreen()
+            : const LoginScreen())
         : Get.offAll(() => const OnboardingScreen());
   }
 
@@ -41,7 +44,6 @@ class AuthRepository extends GetxController {
   void _setupAuthListener() {
     supabase.auth.onAuthStateChange.listen((data) {
       final event = data.event;
-      print(event);
       if (event == AuthChangeEvent.signedIn) {
         Get.off(() => const NavigationMenu());
       } else {
@@ -87,7 +89,6 @@ class AuthRepository extends GetxController {
         email: email,
         password: password,
       );
-      ZLoggerHelper.warning(response.session);
       final userId = response.user?.id;
       return userId;
     } on FormatException catch (_) {
@@ -101,8 +102,7 @@ class AuthRepository extends GetxController {
   }
 }
 
-
- // final userId = response.user?.id;
-      // if (userId == null) {
-      //   throw UnimplementedError();
-      // }
+// final userId = response.user?.id;
+// if (userId == null) {
+//   throw UnimplementedError();
+// }

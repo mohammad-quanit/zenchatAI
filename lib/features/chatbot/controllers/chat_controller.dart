@@ -7,13 +7,15 @@ import 'package:zenchatai/utils/constants/text_strings.dart';
 import 'package:zenchatai/utils/logging/logger.dart';
 
 class BotMessageService {
-  static final String _endpoint = dotenv.env['LOCAL_GRAPHQL_ENDPOINT']!;
+  static final String _endpoint = dotenv.env['GRAPHQL_ENDPOINT']!;
+  static final String _modusApiKey = dotenv.env['MODUS_API_KEY']!;
+
 
   Future<Map<String, dynamic>?> botMsgQuery(String query,
       {Map<String, dynamic>? variables}) async {
     final headers = {
       'Content-Type': 'application/json',
-      'Accept': 'application/json',
+      'Authorization': "Bearer $_modusApiKey"
     };
 
     final body = jsonEncode({
